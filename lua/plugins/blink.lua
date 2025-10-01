@@ -123,7 +123,7 @@ return {
 				scrollbar = false,
 				draw = {
 					treesitter = { "lsp" },
-					columns = { { "label", gap = 1 }, { "label_description", gap = 1 }, { "kind", gap = 1 } },
+					columns = { { "label", "label_description", gap = 1 }, { "kind", gap = 1 } },
 				},
 			},
 			documentation = {
