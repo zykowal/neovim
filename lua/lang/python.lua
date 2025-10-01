@@ -66,7 +66,7 @@ return {
 		optional = true,
 		opts = {
 			formatters_by_ft = {
-				python = { "ruff_organize_imports", "ruff_format", "ruff", lsp_format = "fallback" },
+				python = { "ruff_organize_imports", "ruff_format", lsp_format = "fallback" },
 			},
 		},
 	},
