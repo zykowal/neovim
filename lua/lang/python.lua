@@ -52,13 +52,13 @@ return {
 	{
 		"williamboman/mason-lspconfig.nvim",
 		optional = true,
-		opts = { ensure_installed = { "ruff", "basedpyright" } },
+		opts = { ensure_installed = { "ruff", "basedpyright", "taplo" } },
 	},
 
 	{
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
 		optional = true,
-		opts = { ensure_installed = { "ruff", "basedpyright", "debugpy" } },
+		opts = { ensure_installed = { "ruff", "basedpyright", "debugpy", "taplo" } },
 	},
 
 	{
@@ -67,6 +67,7 @@ return {
 		opts = {
 			formatters_by_ft = {
 				python = { "ruff_organize_imports", "ruff_format", lsp_format = "fallback" },
+				toml = { "taplo", "taplo_format", lsp_format = "fallback" },
 			},
 		},
 	},
