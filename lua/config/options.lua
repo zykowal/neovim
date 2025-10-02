@@ -40,7 +40,7 @@ vim.opt.virtualedit = "block" -- allow going past end of line in visual block mo
 vim.opt.wrap = false -- disable wrapping of lines longer than the width of window
 vim.opt.writebackup = false -- disable making a backup before overwriting a file
 vim.opt.inccommand = "split"
-vim.opt.scrolloff = 8
+vim.opt.scrolloff = 999
 vim.opt.sidescrolloff = 8
 vim.opt.grepprg = "rg --vimgrep"
 vim.opt.lazyredraw = false
@@ -49,7 +49,6 @@ vim.opt.autochdir = false -- Don't change directory automatically
 vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.background = "dark"
-
 vim.opt.foldenable = true
 vim.opt.foldlevel = 99
 vim.opt.foldlevelstart = 99

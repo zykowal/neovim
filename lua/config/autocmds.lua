@@ -45,28 +45,3 @@ set_cursor_color()
 vim.api.nvim_create_autocmd("ColorScheme", {
 	callback = set_cursor_color,
 })
-
-vim.api.nvim_create_autocmd({ "CursorMoved" }, {
-	callback = function()
-		local excluded_filetypes = {
-			"help",
-			"dashboard",
-			"NvimTree",
-			"lazy",
-			"mason",
-			"qf",
-			"terminal",
-			"ministarter",
-			"minifiles",
-		}
-
-		local ft = vim.bo.filetype
-		for _, excluded in ipairs(excluded_filetypes) do
-			if ft == excluded then
-				return
-			end
-		end
-
-		vim.cmd("normal! zz")
-	end,
-})
