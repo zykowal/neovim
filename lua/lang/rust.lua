@@ -31,9 +31,25 @@ return {
 
 	-- Ensure Rust debugger is installed
 	{
-		"mason-org/mason.nvim",
+		"jay-babu/mason-nvim-dap.nvim",
 		optional = true,
 		opts = { ensure_installed = { "codelldb" } },
+	},
+
+	{
+		"WhoIsSethDaniel/mason-tool-installer.nvim",
+		optional = true,
+		opts = { ensure_installed = { "codelldb", "taplo" } },
+	},
+
+	{
+		"stevearc/conform.nvim",
+		optional = true,
+		opts = {
+			formatters_by_ft = {
+				toml = { "taplo", "taplo_format", lsp_format = "fallback" },
+			},
+		},
 	},
 
 	{
@@ -85,6 +101,10 @@ return {
 								"venv",
 								".venv",
 							},
+						},
+						check = {
+							command = "clippy",
+							extraArgs = { "--no-deps" },
 						},
 					},
 				},
