@@ -40,7 +40,6 @@ return {
 							},
 							buildFlags = { "-tags", "integration" },
 							completeUnimported = true,
-							completeUnimported = true,
 							directoryFilters = { "-.git", "-.vscode", "-.idea", "-.vscode-test", "-node_modules" },
 							gofumpt = true,
 							matcher = "Fuzzy",
@@ -118,18 +117,19 @@ return {
 
 	-- Debug
 	{
-		"mfussenegger/nvim-dap",
-		optional = true,
+		"leoluz/nvim-dap-go",
+		ft = "go",
 		dependencies = {
+			"mfussenegger/nvim-dap",
 			{
-				"mason-org/mason.nvim",
-				opts = { ensure_installed = { "delve" } },
-			},
-			{
-				"leoluz/nvim-dap-go",
-				opts = {},
+				"jay-babu/mason-nvim-dap.nvim",
+				optional = true,
+				opts = {
+					ensure_installed = { "delve" },
+				},
 			},
 		},
+		opts = {},
 	},
 
 	-- Test
