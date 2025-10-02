@@ -58,7 +58,7 @@ return {
 	{
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
 		optional = true,
-		opts = { ensure_installed = { "ruff", "basedpyright" } },
+		opts = { ensure_installed = { "ruff", "basedpyright", "debugpy" } },
 	},
 
 	{
@@ -80,4 +80,35 @@ return {
 		opts = {},
 		cmd = "VenvSelect",
 	},
+
+	{
+		"jay-babu/mason-nvim-dap.nvim",
+		optional = true,
+		opts = { ensure_installed = { "python" } },
+	},
+
+	-- Need lua5.1 and luarocks to build.
+	-- {
+	-- 	"mfussenegger/nvim-dap",
+	-- 	optional = true,
+	-- 	specs = {
+	-- 		{
+	-- 			"mfussenegger/nvim-dap-python",
+	-- 			dependencies = "mfussenegger/nvim-dap",
+	-- 			ft = "python", -- NOTE: ft: lazy-load on filetype
+	-- 			opts = {
+	-- 				rocks = {
+	-- 					hererocks = true,
+	-- 				},
+	-- 			},
+	-- 			config = function(_, opts)
+	-- 				local path = vim.fn.exepath("debugpy-adapter")
+	-- 				if path == "" then
+	-- 					path = vim.fn.exepath("python")
+	-- 				end
+	-- 				require("dap-python").setup(path, opts)
+	-- 			end,
+	-- 		},
+	-- 	},
+	-- },
 }
