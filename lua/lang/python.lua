@@ -77,6 +77,15 @@ return {
 	},
 
 	{
+		"mfussenegger/nvim-lint",
+		optional = true,
+		opts = function(_, opts)
+			opts.linters_by_ft = opts.linters_by_ft or {}
+			opts.linters_by_ft.python = { "ruff" }
+		end,
+	},
+
+	{
 		"linux-cultist/venv-selector.nvim",
 		enabled = vim.fn.executable("fd") == 1 or vim.fn.executable("fdfind") == 1 or vim.fn.executable("fd-find") == 1,
 		keys = {

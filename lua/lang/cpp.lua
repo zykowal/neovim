@@ -5,13 +5,9 @@ end
 return {
 	{
 		"neovim/nvim-lspconfig",
-		ft = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
 		opts = {
 			servers = {
 				clangd = {
-					keys = {
-						{ "<leader>lw", "<cmd>ClangdSwitchSourceHeader<cr>", desc = "Switch Source/Header (C/C++)" },
-					},
 					root_markers = {
 						"compile_commands.json",
 						"compile_flags.txt",
