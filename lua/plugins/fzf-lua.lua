@@ -370,11 +370,6 @@ return {
 			desc = "Find commands",
 		},
 		{
-			"<Leader>fn",
-			"<CMD>NoicePick<CR>",
-			desc = "Find commands",
-		},
-		{
 			"<Leader>gb",
 			function()
 				require("fzf-lua").git_branches({
