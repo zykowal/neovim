@@ -3,7 +3,36 @@ return { -- Linting
 	event = { "BufReadPre", "BufNewFile" },
 	config = function()
 		local lint = require("lint")
+
+		-- golang
+		-- lint.linters.golangci_lint = {
+		-- 	cmd = vim.fn.stdpath("data") .. "/mason/bin/golangci-lint",
+		-- 	stdin = false,
+		-- 	args = {
+		-- 		"run",
+		-- 		"--output.json.path=stdout",
+		-- 		"--output.text.path=",
+		-- 		"--output.tab.path=",
+		-- 		"--output.html.path=",
+		-- 		"--output.checkstyle.path=",
+		-- 		"--output.code-climate.path=",
+		-- 		"--output.junit-xml.path=",
+		-- 		"--output.teamcity.path=",
+		-- 		"--output.sarif.path=",
+		-- 		"--issues-exit-code=0",
+		-- 		"--show-stats=false",
+		-- 		"--path-mode=abs",
+		-- 	},
+		-- 	stream = "stdout",
+		-- 	ignore_exitcode = true,
+		-- 	parser = require("lint.parser").from_errorformat("%f:%l:%c: %m", {
+		-- 		source = "golangci-lint",
+		-- 	}),
+		-- }
+
 		lint.linters_by_ft = {
+			-- golang
+			-- go = { "golangci_lint" },
 			-- lua = { "selene" },
 
 			-- js/ts

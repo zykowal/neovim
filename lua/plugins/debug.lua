@@ -11,6 +11,23 @@ return {
 		-- Installs the debug adapters for you
 		"mason-org/mason.nvim",
 		"jay-babu/mason-nvim-dap.nvim",
+
+		-- golang
+		{
+			"leoluz/nvim-dap-go",
+			ft = "go",
+			dependencies = {
+				"mfussenegger/nvim-dap",
+				{
+					"jay-babu/mason-nvim-dap.nvim",
+					optional = true,
+					opts = {
+						ensure_installed = { "delve" },
+					},
+				},
+			},
+			opts = {},
+		},
 	},
 	keys = {
 

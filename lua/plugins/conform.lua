@@ -17,6 +17,13 @@ return {
 		formatters_by_ft = {
 			lua = { "stylua" },
 
+			-- golang
+			-- go = { "goimports", "gofumpt", lsp_format = "last" },
+
+			-- c/cpp
+			-- c = { "clang-format" },
+			-- cpp = { "clang-format" },
+
 			-- js/ts
 			-- javascript = { "prettierd", lsp_format = "fallback" },
 			-- typescript = { "prettierd", lsp_format = "fallback" },

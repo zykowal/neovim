@@ -17,6 +17,15 @@ return {
 			"regex",
 			"bash",
 
+			-- golang
+			-- "go",
+			-- "gomod",
+			-- "gowork",
+			-- "gosum",
+
+			-- cpp
+			-- "cpp",
+
 			-- js/ts
 			-- "javascript",
 			-- "typescript",

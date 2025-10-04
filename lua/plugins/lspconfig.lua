@@ -11,6 +11,12 @@ return {
 			"mason-org/mason-lspconfig.nvim",
 			opts = {
 				ensure_installed = {
+					-- golang
+					-- "gopls",
+
+					-- c/cpp
+					-- "clangd",
+
 					-- js/ts
 					-- "vtsls"
 				},
@@ -20,6 +26,22 @@ return {
 			"WhoIsSethDaniel/mason-tool-installer.nvim",
 			opts = {
 				ensure_installed = {
+					-- golang
+					-- "delve",
+					-- "gopls",
+					-- "gomodifytags",
+					-- "gotests",
+					-- "iferr",
+					-- "impl",
+					-- "goimports",
+					-- "gofumpt",
+					-- "golangci-lint",
+
+					-- c/cpp
+					-- "clangd",
+					-- "clang-format",
+					-- "codelldb",
+
 					-- js/ts
 					-- "vtsls",
 					-- "prettierd",
@@ -185,6 +207,89 @@ return {
 		--  - settings (table): Override the default settings passed when initializing the server.
 		--        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
 		local servers = {
+			-- golang
+			-- gopls = {
+			-- 	settings = {
+			-- 		gopls = {
+			-- 			analyses = {
+			-- 				ST1003 = true,
+			-- 				fieldalignment = false,
+			-- 				fillreturns = true,
+			-- 				nilness = true,
+			-- 				nonewvars = true,
+			-- 				shadow = true,
+			-- 				undeclaredname = true,
+			-- 				unreachable = true,
+			-- 				unusedparams = true,
+			-- 				unusedwrite = true,
+			-- 				useany = true,
+			-- 			},
+			-- 			codelenses = {
+			-- 				gc_details = false,
+			-- 				generate = true, -- show the `go generate` lens.
+			-- 				regenerate_cgo = true,
+			-- 				run_govulncheck = true,
+			-- 				test = true,
+			-- 				tidy = true,
+			-- 				upgrade_dependency = true,
+			-- 				vendor = true,
+			-- 			},
+			-- 			hints = {
+			-- 				assignVariableTypes = true,
+			-- 				compositeLiteralFields = true,
+			-- 				compositeLiteralTypes = true,
+			-- 				constantValues = true,
+			-- 				functionTypeParameters = true,
+			-- 				parameterNames = true,
+			-- 				rangeVariableTypes = true,
+			-- 			},
+			-- 			buildFlags = { "-tags", "integration" },
+			-- 			completeUnimported = true,
+			-- 			directoryFilters = { "-.git", "-.vscode", "-.idea", "-.vscode-test", "-node_modules" },
+			-- 			gofumpt = true,
+			-- 			matcher = "Fuzzy",
+			-- 			semanticTokens = true,
+			-- 			staticcheck = true,
+			-- 			symbolMatcher = "fuzzy",
+			-- 			usePlaceholders = true,
+			-- 		},
+			-- 	},
+			-- },
+
+			-- c/cpp
+			-- clangd = {
+			-- 	root_markers = {
+			-- 		"compile_commands.json",
+			-- 		"compile_flags.txt",
+			-- 		"configure.ac", -- AutoTools
+			-- 		"Makefile",
+			-- 		"configure.ac",
+			-- 		"configure.in",
+			-- 		"config.h.in",
+			-- 		"meson.build",
+			-- 		"meson_options.txt",
+			-- 		"build.ninja",
+			-- 		".git",
+			-- 	},
+			-- 	capabilities = {
+			-- 		offsetEncoding = "utf-8",
+			-- 	},
+			-- 	cmd = {
+			-- 		"clangd",
+			-- 		"--background-index",
+			-- 		"--clang-tidy",
+			-- 		"--header-insertion=iwyu",
+			-- 		"--completion-style=detailed",
+			-- 		"--function-arg-placeholders",
+			-- 		"--fallback-style=llvm",
+			-- 	},
+			-- 	init_options = {
+			-- 		usePlaceholders = true,
+			-- 		completeUnimported = true,
+			-- 		clangdFileStatus = true,
+			-- 	},
+			-- },
+
 			-- js/ts
 			-- vtsls = {
 			-- 	settings = {
