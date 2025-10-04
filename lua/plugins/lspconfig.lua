@@ -7,8 +7,26 @@ return {
 		-- Mason must be loaded before its dependents so we need to set it up here.
 		-- NOTE: `opts = {}` is the same as calling `require('mason').setup({})`
 		{ "mason-org/mason.nvim", opts = {} },
-		"mason-org/mason-lspconfig.nvim",
-		"WhoIsSethDaniel/mason-tool-installer.nvim",
+		{
+			"mason-org/mason-lspconfig.nvim",
+			opts = {
+				ensure_installed = {
+					-- js/ts
+					-- "vtsls"
+				},
+			},
+		},
+		{
+			"WhoIsSethDaniel/mason-tool-installer.nvim",
+			opts = {
+				ensure_installed = {
+					-- js/ts
+					-- "vtsls",
+					-- "prettierd",
+					-- "oxlint"
+				},
+			},
+		},
 
 		-- Useful status updates for LSP.
 		{
@@ -167,33 +185,38 @@ return {
 		--  - settings (table): Override the default settings passed when initializing the server.
 		--        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
 		local servers = {
-			-- clangd = {},
-			-- gopls = {},
-			-- pyright = {},
-			-- rust_analyzer = {},
-			-- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
-			--
-			-- Some languages (like typescript) have entire language plugins that can be useful:
-			--    https://github.com/pmizio/typescript-tools.nvim
-			--
-			-- But for many setups, the LSP (`ts_ls`) will work just fine
-			-- ts_ls = {},
-			--
+			-- js/ts
+			-- vtsls = {
+			-- 	settings = {
+			-- 		typescript = {
+			-- 			updateImportsOnFileMove = { enabled = "always" },
+			-- 			inlayHints = {
+			-- 				enumMemberValues = { enabled = true },
+			-- 				functionLikeReturnTypes = { enabled = true },
+			-- 				parameterNames = { enabled = "all" },
+			-- 				parameterTypes = { enabled = true },
+			-- 				propertyDeclarationTypes = { enabled = true },
+			-- 				variableTypes = { enabled = true },
+			-- 			},
+			-- 		},
+			-- 		javascript = {
+			-- 			updateImportsOnFileMove = { enabled = "always" },
+			-- 			inlayHints = {
+			-- 				enumMemberValues = { enabled = true },
+			-- 				functionLikeReturnTypes = { enabled = true },
+			-- 				parameterNames = { enabled = "literals" },
+			-- 				parameterTypes = { enabled = true },
+			-- 				propertyDeclarationTypes = { enabled = true },
+			-- 				variableTypes = { enabled = true },
+			-- 			},
+			-- 		},
+			-- 		vtsls = {
+			-- 			enableMoveToFileCodeAction = true,
+			-- 		},
+			-- 	},
+			-- },
 
-			lua_ls = {
-				-- cmd = { ... },
-				-- filetypes = { ... },
-				-- capabilities = {},
-				settings = {
-					-- Lua = {
-					--   completion = {
-					--     callSnippet = 'Replace',
-					--   },
-					-- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-					-- diagnostics = { disable = { 'missing-fields' } },
-					-- },
-				},
-			},
+			lua_ls = {},
 		}
 
 		-- Ensure the servers and tools above are installed

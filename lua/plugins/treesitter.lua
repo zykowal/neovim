@@ -6,7 +6,23 @@ return {
 
 	opts = {
 		-- A list of parser names, or "all" (the listed parsers MUST always be installed)
-		ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline", "regex", "bash" },
+		ensure_installed = {
+			"c",
+			"lua",
+			"vim",
+			"vimdoc",
+			"query",
+			"markdown",
+			"markdown_inline",
+			"regex",
+			"bash",
+
+			-- js/ts
+			-- "javascript",
+			-- "typescript",
+			-- "tsx",
+			-- "json",
+		},
 
 		-- Install parsers synchronously (only applied to `ensure_installed`)
 		sync_install = false,

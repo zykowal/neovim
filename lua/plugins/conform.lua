@@ -14,7 +14,16 @@ return {
 	},
 	opts = {
 		notify_on_error = false,
-		formatters_by_ft = { lua = { "stylua" } },
+		formatters_by_ft = {
+			lua = { "stylua" },
+
+			-- js/ts
+			-- javascript = { "prettierd", lsp_format = "fallback" },
+			-- typescript = { "prettierd", lsp_format = "fallback" },
+			-- javascriptreact = { "prettierd", lsp_format = "fallback" },
+			-- typescriptreact = { "prettierd", lsp_format = "fallback" },
+			-- json = { "prettierd", lsp_format = "fallback" },
+		},
 		format_on_save = function(bufnr)
 			-- Disable "format_on_save lsp_fallback" for languages that don't
 			-- have a well standardized coding style. You can add additional
