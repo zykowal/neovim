@@ -211,7 +211,6 @@ return {
 				end
 				return " [" .. table.concat(names, " ") .. "]"
 			end,
-			hl = { bold = true },
 		}
 
 		local Diagnostics = {
