@@ -11,6 +11,11 @@ return {
 			"mason-org/mason-lspconfig.nvim",
 			opts = {
 				ensure_installed = {
+					-- python
+					-- "ruff",
+					-- "basedpyright",
+					-- "taplo",
+
 					-- golang
 					-- "gopls",
 
@@ -26,6 +31,12 @@ return {
 			"WhoIsSethDaniel/mason-tool-installer.nvim",
 			opts = {
 				ensure_installed = {
+					-- python
+					-- "ruff",
+					-- "basedpyright",
+					-- "debugpy",
+					-- "taplo",
+
 					-- golang
 					-- "delve",
 					-- "gopls",
@@ -207,6 +218,44 @@ return {
 		--  - settings (table): Override the default settings passed when initializing the server.
 		--        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
 		local servers = {
+			-- python
+			-- basedpyright = {
+			-- 	before_init = function(_, c)
+			-- 		if not c.settings then
+			-- 			c.settings = {}
+			-- 		end
+			-- 		if not c.settings.python then
+			-- 			c.settings.python = {}
+			-- 		end
+			-- 		c.settings.python.pythonPath = vim.fn.exepath("python")
+			-- 	end,
+			-- 	settings = {
+			-- 		basedpyright = {
+			-- 			analysis = {
+			-- 				typeCheckingMode = "basic",
+			-- 				autoImportCompletions = true,
+			-- 				diagnosticSeverityOverrides = {
+			-- 					reportUnusedImport = "information",
+			-- 					reportUnusedFunction = "information",
+			-- 					reportUnusedVariable = "information",
+			-- 					reportGeneralTypeIssues = "none",
+			-- 					reportOptionalMemberAccess = "none",
+			-- 					reportOptionalSubscript = "none",
+			-- 					reportPrivateImportUsage = "none",
+			-- 				},
+			-- 			},
+			-- 		},
+			-- 	},
+			-- },
+			-- ruff = {
+			-- 	cmd_env = { RUFF_TRACE = "messages" },
+			-- 	init_options = {
+			-- 		settings = {
+			-- 			logLevel = "error",
+			-- 		},
+			-- 	},
+			-- },
+
 			-- golang
 			-- gopls = {
 			-- 	settings = {

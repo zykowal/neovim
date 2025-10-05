@@ -17,6 +17,10 @@ return {
 			"regex",
 			"bash",
 
+			-- python
+			-- "python",
+			-- "toml",
+
 			-- golang
 			-- "go",
 			-- "gomod",

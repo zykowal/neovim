@@ -17,6 +17,10 @@ return {
 		formatters_by_ft = {
 			lua = { "stylua" },
 
+			-- python
+			-- python = { "ruff_organize_imports", "ruff_format", "ruff", lsp_format = "fallback" },
+			-- toml = { "taplo", "taplo_format", lsp_format = "fallback" },
+
 			-- golang
 			-- go = { "goimports", "gofumpt", lsp_format = "last" },
 

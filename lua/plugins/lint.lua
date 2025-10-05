@@ -31,8 +31,12 @@ return { -- Linting
 		-- }
 
 		lint.linters_by_ft = {
+			-- python
+			-- python = { "ruff" },
+
 			-- golang
 			-- go = { "golangci_lint" },
+
 			-- lua = { "selene" },
 
 			-- js/ts
