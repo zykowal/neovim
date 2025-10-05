@@ -6,7 +6,7 @@ return { -- Linting
 
 		-- golang
 		-- lint.linters.golangci_lint = {
-		-- 	cmd = vim.fn.stdpath("data") .. "/mason/bin/golangci-lint",
+		-- 	cmd = "golangci-lint",
 		-- 	stdin = false,
 		-- 	args = {
 		-- 		"run",
