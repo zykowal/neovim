@@ -47,16 +47,6 @@ return {
 	},
 
 	{
-		"stevearc/conform.nvim",
-		optional = true,
-		opts = {
-			formatters_by_ft = {
-				toml = { "taplo", "taplo_format", lsp_format = "fallback" },
-			},
-		},
-	},
-
-	{
 		"mrcjkb/rustaceanvim",
 		ft = { "rust" },
 		opts = {
