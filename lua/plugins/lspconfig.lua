@@ -7,58 +7,51 @@ return {
 		-- Mason must be loaded before its dependents so we need to set it up here.
 		-- NOTE: `opts = {}` is the same as calling `require('mason').setup({})`
 		{ "mason-org/mason.nvim", opts = {} },
-		{
-			"mason-org/mason-lspconfig.nvim",
-			opts = {
-				ensure_installed = {
-					-- python
-					-- "ruff",
-					-- "basedpyright",
-					-- "taplo",
-
-					-- golang
-					-- "gopls",
-
-					-- c/cpp
-					-- "clangd",
-
-					-- js/ts
-					-- "vtsls"
-				},
-			},
-		},
+		"mason-org/mason-lspconfig.nvim",
 		{
 			"WhoIsSethDaniel/mason-tool-installer.nvim",
-			opts = {
-				ensure_installed = {
-					-- python
-					-- "ruff",
-					-- "basedpyright",
-					-- "debugpy",
-					-- "taplo",
+			config = function()
+				require("mason-tool-installer").setup({
+					ensure_installed = {
+						-- python
+						-- "ruff",
+						-- "basedpyright",
+						-- "debugpy",
+						-- "taplo",
 
-					-- golang
-					-- "delve",
-					-- "gopls",
-					-- "gomodifytags",
-					-- "gotests",
-					-- "iferr",
-					-- "impl",
-					-- "goimports",
-					-- "gofumpt",
-					-- "golangci-lint",
+						-- golang
+						-- "delve",
+						-- "gopls",
+						-- "gomodifytags",
+						-- "gotests",
+						-- "iferr",
+						-- "impl",
+						-- "goimports",
+						-- "gofumpt",
+						-- "golangci-lint",
 
-					-- c/cpp
-					-- "clangd",
-					-- "clang-format",
-					-- "codelldb",
+						-- c/cpp
+						-- "clangd",
+						-- "clang-format",
+						-- "codelldb",
 
-					-- js/ts
-					-- "vtsls",
-					-- "prettierd",
-					-- "oxlint"
-				},
-			},
+						-- js/ts
+						-- "vtsls"
+
+						-- html/css
+						-- "html-lsp",
+						-- "tailwindcss-language-server",
+
+						-- lua
+						"stylua",
+					},
+					auto_update = false,
+					run_on_start = true,
+				})
+				vim.defer_fn(function()
+					vim.cmd("MasonToolsInstall")
+				end, 2000)
+			end,
 		},
 
 		-- Useful status updates for LSP.
@@ -306,38 +299,38 @@ return {
 			-- },
 
 			-- c/cpp
-			-- clangd = {
-			-- 	root_markers = {
-			-- 		"compile_commands.json",
-			-- 		"compile_flags.txt",
-			-- 		"configure.ac", -- AutoTools
-			-- 		"Makefile",
-			-- 		"configure.ac",
-			-- 		"configure.in",
-			-- 		"config.h.in",
-			-- 		"meson.build",
-			-- 		"meson_options.txt",
-			-- 		"build.ninja",
-			-- 		".git",
-			-- 	},
-			-- 	capabilities = {
-			-- 		offsetEncoding = "utf-8",
-			-- 	},
-			-- 	cmd = {
-			-- 		"clangd",
-			-- 		"--background-index",
-			-- 		"--clang-tidy",
-			-- 		"--header-insertion=iwyu",
-			-- 		"--completion-style=detailed",
-			-- 		"--function-arg-placeholders",
-			-- 		"--fallback-style=llvm",
-			-- 	},
-			-- 	init_options = {
-			-- 		usePlaceholders = true,
-			-- 		completeUnimported = true,
-			-- 		clangdFileStatus = true,
-			-- 	},
-			-- },
+			clangd = {
+				root_markers = {
+					"compile_commands.json",
+					"compile_flags.txt",
+					"configure.ac", -- AutoTools
+					"Makefile",
+					"configure.ac",
+					"configure.in",
+					"config.h.in",
+					"meson.build",
+					"meson_options.txt",
+					"build.ninja",
+					".git",
+				},
+				capabilities = {
+					offsetEncoding = "utf-8",
+				},
+				cmd = {
+					"clangd",
+					"--background-index",
+					"--clang-tidy",
+					"--header-insertion=iwyu",
+					"--completion-style=detailed",
+					"--function-arg-placeholders",
+					"--fallback-style=llvm",
+				},
+				init_options = {
+					usePlaceholders = true,
+					completeUnimported = true,
+					clangdFileStatus = true,
+				},
+			},
 
 			-- js/ts
 			-- vtsls = {
@@ -386,11 +379,6 @@ return {
 		--
 		-- You can add other tools here that you want Mason to install
 		-- for you, so that they are available from within Neovim.
-		local ensure_installed = vim.tbl_keys(servers or {})
-		vim.list_extend(ensure_installed, {
-			"stylua", -- Used to format Lua code
-		})
-		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
 		require("mason-lspconfig").setup({
 			ensure_installed = {}, -- explicitly set to an empty table (Kickstart populates installs via mason-tool-installer)
